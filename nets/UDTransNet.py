@@ -131,8 +131,8 @@ class Up_Block(nn.Module):
             nn.ConvTranspose2d(in_ch, in_ch//2, kernel_size=2, stride=2),
             nn.BatchNorm2d(in_ch//2),
             nn.ReLU(inplace=True))
-        self.DRA = DRA_C(skip_ch, in_ch//2, img_size, config) # # channel_wise_DRA
-        # self.DRA = DRA_S(skip_ch, in_ch//2, img_size, config) # spatial_wise_DRA
+        self.pam = DRA_C(skip_ch, in_ch//2, img_size, config) # # channel_wise_DRA
+        # self.pam = DRA_S(skip_ch, in_ch//2, img_size, config) # spatial_wise_DRA
         self.conv = nn.Sequential(
             nn.Conv2d(in_ch//2+skip_ch, out_ch, kernel_size=3, stride=1, padding=1, bias=True),
             nn.BatchNorm2d(out_ch),
@@ -143,7 +143,7 @@ class Up_Block(nn.Module):
 
     def forward(self, decoder, o_i):
         d_i = self.up(decoder)
-        o_hat_i = self.DRA(d_i, o_i)
+        o_hat_i = self.pam(d_i, o_i)
         x = torch.cat((o_hat_i, d_i), dim=1)
         x = self.conv(x)
         return x
@@ -176,7 +176,7 @@ class UDTransNet(nn.Module):
         # =====================================================
         # DAT Module
         # =====================================================
-        self.DAT = DAT(config, img_size, channel_num=filters_resnet[0:4], patchSize=config.patch_sizes)
+        self.mtc = DAT(config, img_size, channel_num=filters_resnet[0:4], patchSize=config.patch_sizes)
 
         # =====================================================
         # DRA & Decoder
@@ -203,7 +203,7 @@ class UDTransNet(nn.Module):
         e4 = self.Conv4(e3)
         e5 = self.Conv5(e4)
 
-        o1,o2,o3,o4 = self.DAT(e1,e2,e3,e4)
+        o1,o2,o3,o4 = self.mtc(e1,e2,e3,e4)
 
         d4 = self.Up5(e5, o4)
         d3 = self.Up4(d4, o3)
