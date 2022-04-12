@@ -20,7 +20,7 @@ pip install -r requirements.txt
 
 
 ### 1. Data Preparation
-The GlaS dataset is in the 'dataset' folder.
+The GlaS dataset is in the 'datasets' folder.
 ISIC-2018 and Synapse datasets can be downloaded in following links:
 * ISIC-2018 Dataset - [Link](https://challenge2018.isic-archive.com/task1/training/)
 * Synapse Dataset - [Link](https://drive.google.com/file/d/1vxZ_eqqyycFva3luuDKZSTtyfd8-Uv3B/view?usp=sharing)
