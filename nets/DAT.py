@@ -169,7 +169,7 @@ class Block_ViT(nn.Module):
         self.attn_norm4 = LayerNorm(config.transformer["embedding_channels"],eps=1e-6)
         self.attn_norm =  LayerNorm(config.KV_size_S,eps=1e-6)
         self.attn_norm_C=  LayerNorm(config.KV_size,eps=1e-6)
-        self.dual_attn = Attention(config, channel_num)
+        self.channel_attn = Attention(config, channel_num)
         self.ffn_norm1 = LayerNorm(config.transformer["embedding_channels"],eps=1e-6)
         self.ffn_norm2 = LayerNorm(config.transformer["embedding_channels"],eps=1e-6)
         self.ffn_norm3 = LayerNorm(config.transformer["embedding_channels"],eps=1e-6)
@@ -197,7 +197,7 @@ class Block_ViT(nn.Module):
         cx3 = self.attn_norm3(emb3)
         cx4 = self.attn_norm4(emb4)
         emb_C = self.attn_norm_C(emb_C)
-        cx1,cx2,cx3,cx4 = self.dual_attn(cx1,cx2,cx3,cx4, emb_C)
+        cx1,cx2,cx3,cx4 = self.channel_attn(cx1,cx2,cx3,cx4, emb_C)
         cx1 = org1 + cx1
         cx2 = org2 + cx2
         cx3 = org3 + cx3
