@@ -6,6 +6,8 @@ This repo is the official implementation of
 learnable skip connections: The case of medical
 image segmentation' which is an improved journal version of [UCTransNet](https://github.com/McGregorWwww/UCTransNet).
 
+**The manuscript is now under review.**
+
 ![framework](https://github.com/McGregorWwww/UDTransNet/blob/main/docs/Framework.jpg)
 
 
