@@ -2,9 +2,9 @@
 
 
 This repo is the official implementation of
-'Narrowing the semantic gaps in U-Net with
+'[Narrowing the semantic gaps in U-Net with
 learnable skip connections: The case of medical
-image segmentation' which is an improved journal version of [UCTransNet](https://github.com/McGregorWwww/UCTransNet).
+image segmentation](https://arxiv.org/abs/2312.15182)' which is an improved journal version of [UCTransNet](https://github.com/McGregorWwww/UCTransNet).
 
 **The manuscript is now under review.**
 
