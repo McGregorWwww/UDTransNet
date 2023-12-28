@@ -8,7 +8,7 @@ image segmentation](https://arxiv.org/abs/2312.15182)' which is an improved jour
 
 **The manuscript is now under review.**
 
-![framework](https://github.com/McGregorWwww/UDTransNet/blob/main/docs/Framework.jpg)
+![framework](https://github.com/McGregorWwww/UDTransNet/blob/main/Framework.jpg)
 
 
 ## Requirements
