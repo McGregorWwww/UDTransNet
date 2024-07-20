@@ -1,12 +1,12 @@
-# UDTransNet
+# [Neural Networks] UDTransNet
 
 
 This repo is the official implementation of
 '[Narrowing the semantic gaps in U-Net with
 learnable skip connections: The case of medical
-image segmentation](https://arxiv.org/abs/2312.15182)' which is an improved journal version of [UCTransNet](https://github.com/McGregorWwww/UCTransNet).
+image segmentation](https://www.sciencedirect.com/science/article/abs/pii/S0893608024004702)' which is an improved journal version of [UCTransNet](https://github.com/McGregorWwww/UCTransNet).
 
-**The manuscript is now under review.**
+🎉 **The manuscript is accepted by [Neural Networks](https://www.sciencedirect.com/journal/neural-networks), 2024.**
 
 ![framework](https://github.com/McGregorWwww/UDTransNet/blob/main/Framework.jpg)
 
